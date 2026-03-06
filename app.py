@@ -23,6 +23,12 @@ input_text = st.text_area("Paste artikel kat sini (Min 100 patah perkataan): ", 
 if st.button("Ringkaskan Sekarang!"):
     if input_text:
         with st.spinner('Tengah baca... jap eh...'):
+
+            # Potong teks supaya tak exceed limit model (max ~1024 tokens = 700words)
+            words = input_text.split()
+            if len(words) > 700:
+                input_text = " ".join(words[:700])
+            
             #3. Proses summarization
             # max_length = panjang, ringkasan, min_length = pendek mana kau nak
             result = summarizer(input_text, max_length=130, min_length=30, do_sample=False)
