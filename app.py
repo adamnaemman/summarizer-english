@@ -5,7 +5,7 @@ from transformers import pipeline
 @st.cache_resource
 def load_summarizer():
     return pipeline(
-        task="summarization",
+        "summarization",
         model="t5-small",
         device=-1
     )
