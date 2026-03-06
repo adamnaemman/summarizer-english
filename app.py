@@ -1,4 +1,5 @@
 import streamlit as st
+import transformers
 from transformers import pipeline
 
 #1. Setup model (gune cache supaya tak load banyak kali)
