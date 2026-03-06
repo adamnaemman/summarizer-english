@@ -6,7 +6,8 @@ from transformers import pipeline
 def load_summarizer():
     return pipeline(
         task="summarization",
-        model="facebook/bart-large-cnn"
+        model="facebook/bart-large-cnn",
+        device=-1
     )
 
 summarizer = load_summarizer()
