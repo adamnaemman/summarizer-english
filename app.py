@@ -27,6 +27,7 @@ if st.button("Ringkaskan Sekarang!"):
             # Potong teks supaya tak exceed limit model (max ~1024 tokens = 700words)
             words = input_text.split()
             if len(words) > 700:
+                st.write("Artikel dipotong hingga 700 perkataan sahaja")
                 input_text = " ".join(words[:700])
             
             #3. Proses summarization
