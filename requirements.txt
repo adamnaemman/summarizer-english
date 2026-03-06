@@ -1,5 +1,5 @@
 streamlit
-transformers
-torch
+transformers==4.44.0
+torch==2.4.0
 sentencepiece
 protobuf

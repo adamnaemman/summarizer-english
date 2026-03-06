@@ -6,8 +6,8 @@ from transformers import pipeline
 @st.cache_resource
 def load_summarizer():
     return pipeline(
-        "text2text-generation",
-        model="google/flan-t5-small",
+        "summarization",
+        model="facebook/bart-large-cnn",
         device=-1
     )
 
@@ -25,9 +25,9 @@ if st.button("Ringkaskan Sekarang!"):
         with st.spinner('Tengah baca... jap eh...'):
             #3. Proses summarization
             # max_length = panjang, ringkasan, min_length = pendek mana kau nak
-            result = summarizer("summarize:" + input_text, max_length=130, min_length=30, do_sample=False)
+            result = summarizer(input_text, max_length=130, min_length=30, do_sample=False)
 
-            summary = result[0]['generated_text']
+            summary = result[0]['summary_text']
 
             st.success("Siap cipp!")
             st.write("Hasil Ringkasan: ")
