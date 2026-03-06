@@ -6,7 +6,7 @@ from transformers import pipeline
 def load_summarizer():
     return pipeline(
         task="summarization",
-        model="cninu/t5-small-booksum",
+        model="t5-small",
         device=-1
     )
 
